@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap5/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+<header class="p-3 text-bg-light border-bottom mb-3">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="d-flex align-items-center mb-2 mb-lg-0 me-4">
+                <img src="{% static 'images/wifi-off.svg' %}" alt="logo" height="40">
+            </div>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{% url 'blog:index' %}" class="nav-link px-2 text-secondary">首页</a></li>
+                <li><a href="{% url 'blog:pub_blog' %}" class="nav-link px-2 text-secondary">发布博客</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="{% url 'blog:search' %}" method="GET">
+                <input name="keyword" type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
+            {% if user.is_authenticated %}
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'images/avatar.webp' %}" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{% url 'myauth:log_out' %}">退出登录</a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="text-end">
+                    <a href="{% url 'myauth:sign_in' %}" type="button" class="btn btn-outline-primary me-2">登录</a>
+                    <a href="{% url 'myauth:sign_up' %}" type="button" class="btn btn-primary">注册</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<main class="container bg-white p-3 rounded">
+    {% block main %}{% endblock %}
+</main>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="{% static 'bootstrap5/popper.min.js' %}"></script>
+<script src="{% static 'bootstrap5/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客详情</title>
+    <link rel="stylesheet" href="{% static 'bootstrap5/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap5/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap5/popper.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+<header class="p-3 text-bg-light border-bottom mb-3">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/static" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="{% static 'images/logo.png' %}" alt="logo" height="40">
+
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 text-secondary">首页</a></li>
+                <li><a href="#" class="nav-link px-2 text-secondary">发布博客</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control " placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-primary me-2">登录</button>
+                <button type="button" class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="container bg-white p-3 rounded">
+    <h1>课程详情</h1>
+    <hr>
+    <div class="mt-2">
+        <img src="{% static 'images/avatar.webp' %}" alt="" height="28" width="28" class="rounded-circle">
+        <span class="ms-2">钢铁侠 </span>
+        <span class="ms-2">于</span>
+        <span class="ms-2">2025/03/27 18:05 </span>发布
+    </div>
+    <hr>
+    <div class="mt-2">
+        这是一大段话，表示内容
+        对吧
+    </div>
+    <hr>
+    <div>
+        <h3>评论(0)</h3>
+        <form action="" method="post">
+            <div>
+                <input type="text" class="form-control" placeholder="请输入...">
+            </div>
+            <div class="text-end mt-2">
+                <button type="button" class="btn btn-primary">
+                    提交
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="mt-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item mb-3">
+                <div class="d-flex justify-content-between text-body-secondary">
+                    <div class="user-info">
+                        <img src="{% static 'images/avatar.webp' %}" height="30" width="30" alt="" class="rounded-circle">
+                        <span class="ms-2">钢铁侠</span>
+                    </div>
+                    <div>2025/03/27 18:05</div>
+                </div>
+                <span class="mt-2">这是一特评论</span>
+            </li>
+        </ul>
+    </div>
+
+
+</main>
+</body>
+</html>
