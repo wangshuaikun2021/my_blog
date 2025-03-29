@@ -58,9 +58,5 @@ python manage.py runserver
 
 ## 作者
 
-- 王帅坤
-- 北京科技大学
+- wsk
 
-## 许可证
-
-MIT License 
